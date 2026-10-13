@@ -3388,13 +3388,9 @@ void Bar::buildScene(BarInstance& instance, std::uint32_t width, std::uint32_t h
     }
     if (barConfigUsesSlideSurface(instance.barConfig)) {
       instance.slideRoot->setOpacity(1.0F);
-      const bool startHidden = instance.barConfig.smartAutoHide
-          ? !instance.smartAutoHidePinnedVisible
-          : instance.barConfig.autoHide && instance.barConfig.autoHideDelayMs == 0;
+      const bool startHidden =
+          instance.barConfig.smartAutoHide ? !instance.smartAutoHidePinnedVisible : instance.barConfig.autoHide;
       instance.hideOpacity = startHidden ? 0.0F : 1.0F;
-      if (instance.barConfig.autoHide && !instance.barConfig.smartAutoHide && instance.barConfig.autoHideDelayMs > 0) {
-        startHideFadeOut(instance);
-      }
     } else {
       instance.slideRoot->setOpacity(1.0F);
       instance.hideOpacity = 1.0F;
