@@ -3346,9 +3346,9 @@ namespace settings {
             tr("settings.schema.bar.auto-hide-delay.description"), path("auto_hide_delay_ms"),
             StepperSetting{
                 .value = bar.autoHideDelayMs,
-                .minValue = 0,
-                .maxValue = 600000,
-                .step = 1000,
+                .minValue = static_cast<int>(noctalia::config::schema::kBarAutoHideDelayMsRange.min.value()),
+                .maxValue = static_cast<int>(noctalia::config::schema::kBarAutoHideDelayMsRange.max.value()),
+                .step = static_cast<int>(noctalia::config::schema::kBarAutoHideDelayMsRange.step.value()),
                 .valueSuffix = "ms",
             },
             "autohide delay wait"
@@ -3705,9 +3705,9 @@ namespace settings {
               tr("settings.schema.bar.auto-hide-delay.description"), monitorPath("auto_hide_delay_ms"),
               StepperSetting{
                   .value = ovr.autoHideDelayMs.value_or(bar.autoHideDelayMs),
-                  .minValue = 0,
-                  .maxValue = 600000,
-                  .step = 1000,
+                  .minValue = static_cast<int>(noctalia::config::schema::kBarAutoHideDelayMsRange.min.value()),
+                  .maxValue = static_cast<int>(noctalia::config::schema::kBarAutoHideDelayMsRange.max.value()),
+                  .step = static_cast<int>(noctalia::config::schema::kBarAutoHideDelayMsRange.step.value()),
                   .valueSuffix = "ms",
               },
               "autohide delay wait"
